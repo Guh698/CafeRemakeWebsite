@@ -1,0 +1,976 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/*General*/
+* {
+  font-family: "Poppins", "serif";
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/*animations*/
+@keyframes productContainerAnimation {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    width: 50%;
+  }
+}
+
+@keyframes productContainerAnimationTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@media (min-width: 320px) {
+  .nav-container {
+    position: relative;
+    height: 100px;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  nav {
+    height: 100px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #383b28;
+  }
+
+  .navbar-items-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0.5rem;
+  }
+
+  .navbar-items-container a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .logoNav {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
+
+  .logoNav img {
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+  }
+
+  .logoNav h1 {
+    cursor: pointer;
+    display: none;
+  }
+
+  .NavSections {
+    display: flex;
+    align-items: center;
+  }
+
+  .NavSections ul {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50px);
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    z-index: 1;
+  }
+
+  .NavSections ul li {
+    position: relative;
+  }
+
+  .linha {
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: #fff;
+    transition: 0.3s ease-in-out;
+  }
+
+  .NavSections ul li:hover {
+    .linha {
+      width: 100%;
+    }
+  }
+
+  .contactIcons {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+  }
+
+  .contactIcons ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .contactIcons ul li {
+    display: flex;
+    position: relative;
+    padding: 13px 15px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    transition: 0.5s ease;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  .contactIcons ul a li {
+    color: #fff;
+    transition: 0.5s ease;
+  }
+
+  .contactIcons ul a:hover li {
+    color: #383b28;
+  }
+
+  .contactIcons ul li:hover {
+    background-color: #fff;
+  }
+
+  /*main*/
+  .main-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .introPage {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .introPage video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    object-fit: cover;
+  }
+
+  .introPage .text {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 2;
+    color: white;
+    text-align: center;
+    top: 45%;
+    transform: translateY(-45%);
+    cursor: default;
+  }
+
+  .introPage .text h1 {
+    font-size: 34px;
+  }
+
+  .introPage a {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  #videoControlBtn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 175px;
+    margin-right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(241, 241, 241, 0.182);
+    color: white;
+    border: none;
+    width: 85px;
+    height: 85px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 50%;
+    transition: background 0.3s, color 0.3s;
+    z-index: 3;
+  }
+  #videoControlBtn:hover {
+    background: rgba(241, 241, 241, 0.943);
+    color: #000;
+  }
+
+  .discoverBtn a {
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(50px); /* Começa mais abaixo */
+    transition: transform 0.6s ease, opacity 0.6s ease;
+  }
+
+  .VisitUs-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e9d4b9;
+  }
+
+  .VisitUs-container h1 {
+    font-size: 45px;
+    font-weight: bold;
+    color: #383b28;
+    text-transform: uppercase;
+  }
+
+  .visitUs {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 80%;
+    gap: 110px;
+  }
+
+  .coffegrao1 {
+    position: absolute;
+    top: 10%;
+    left: -25%;
+    height: 150px;
+    width: 200px;
+    transform: rotate(55deg);
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/v1746677956/coffeebean_mx7zfg.png);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .coffegrao2 {
+    position: absolute;
+    top: 70%;
+    left: 65%;
+    height: 150px;
+    width: 200px;
+    transform: rotate(36deg);
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/v1746677956/coffeebean_mx7zfg.png);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .CafeAdress {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .CafeAdress img {
+    margin-top: 30px;
+    width: 350px;
+    height: 500px;
+    object-fit: cover;
+  }
+
+  .CafeAdress p {
+    font-size: 16px;
+    padding-bottom: 50px;
+    color: #383b28;
+  }
+
+  .aboutContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .aboutUs {
+    position: relative;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 90%;
+  }
+
+  .FirstMiddleAbout {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    color: #383b28;
+  }
+
+  .FirstMiddleAbout h1 {
+    font-size: 35px;
+    font-weight: bold;
+    cursor: default;
+  }
+
+  .textAboutP {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 18px;
+    padding: 2rem;
+    gap: 20px;
+    cursor: default;
+  }
+
+  .brand {
+    font-weight: bold;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+  }
+
+  .menuDownload {
+    text-decoration: none;
+  }
+
+  .discoverproductsBtn {
+    background-color: #383b28;
+    border: 1px solid #383b28;
+    color: #e9d4b9;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease, padding 0.3s;
+  }
+
+  .discoverproductsBtn:hover {
+    padding: 20px;
+    background-color: #e9d4b9;
+    color: #383b28;
+  }
+
+  .SecondMiddleAbout {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .SecondMiddleAbout .AboutPosterImg {
+    position: relative;
+    width: 350px;
+    height: auto;
+  }
+
+  .SecondMiddleAbout .logo3dImg {
+    position: absolute;
+    top: 5%;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    z-index: 4;
+  }
+
+  .productsCategoryContainer {
+    position: relative;
+    background-color: #383b28;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 3rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .MenuTitle-container {
+    position: absolute;
+    top: 0;
+    margin-top: 30px;
+    width: 90vw;
+    height: auto;
+  }
+
+  .MenuTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .MenuTitle .linha1 {
+    height: 2px;
+    background-color: #e9d4b9;
+    opacity: 0;
+  }
+
+  .MenuTitle .TitleTextMenu {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: #e9d4b9;
+    font-size: 32px;
+    font-weight: bold;
+    opacity: 0;
+    max-width: 200px;
+    transform: translateY(-50px);
+  }
+
+  .MenuTitle .linha2 {
+    height: 2px;
+    background-color: #e9d4b9;
+    opacity: 0;
+  }
+
+  .animateTitle {
+    animation: productContainerAnimationTitle 0.5s 0.2s ease-in-out 1 forwards;
+  }
+
+  .animate {
+    animation: productContainerAnimation 0.8s 0.8s ease-in-out 1 forwards;
+  }
+
+  .FirstCategory {
+    position: relative;
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    color: #e9d4b9;
+  }
+
+  .FirstCategory h2 {
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .products-container {
+    display: flex;
+    gap: 35px;
+    flex-direction: column;
+  }
+
+  .product {
+    position: relative;
+    width: 250px;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .img-container {
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+  }
+
+  .product img {
+    transition: transform 0.5s ease;
+    object-fit: cover;
+  }
+
+  .product:hover img {
+    transform: scale(1.1);
+  }
+
+  .SecondCategory {
+    position: relative;
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    color: #e9d4b9;
+  }
+
+  .SecondCategory h2 {
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .ThirdCategory {
+    position: relative;
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    color: #e9d4b9;
+    padding-bottom: 60px;
+    z-index: 3;
+  }
+
+  .ThirdCategory h2 {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .posters-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  .posters {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .Side1 {
+    max-width: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    margin-bottom: -10px;
+  }
+
+  .Side2 {
+    max-width: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    margin-bottom: -10px;
+  }
+
+  .Side3 {
+    max-width: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    margin-bottom: -10px;
+  }
+
+  .Side1 img {
+    width: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+  }
+
+  .Side2 img {
+    width: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+  }
+
+  .Side3 img {
+    width: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+  }
+
+  .Side1 img:hover {
+    transform: scale(1.1);
+  }
+
+  .Side2 img:hover {
+    transform: scale(1.1);
+  }
+
+  .Side3 img:hover {
+    transform: scale(1.1);
+  }
+
+  .tableScheduling-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(https://res.cloudinary.com/dabshzrnj/image/upload/v1746726434/cafeinterior2k-681cee04174c3_o4m9ui.webp);
+    background-position: center;
+    background-size: cover;
+    margin-top: -20px;
+  }
+
+  .tableScheduling {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .SchedulingBox {
+    height: 70%;
+    margin-top: 150px;
+    width: 70%;
+    padding: 35px;
+    margin-right: 0;
+    background-color: #fff;
+  }
+
+  .Scheduling-box {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .Scheduling-box h2 {
+    font-size: 24px;
+    text-align: center;
+    color: #383b28;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .Scheduling-box input {
+    padding: 10px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: #383b28;
+    outline: none;
+    color: #383b28;
+  }
+
+  .btn {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    padding: 15px;
+    background-color: #383b28;
+    border: 1px solid #383b28;
+    color: #e9d4b9;
+    width: 200px;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: 0.5s ease;
+  }
+
+  .btn:hover {
+    background-color: #e9d4b9;
+    color: #383b28;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #383b28;
+  }
+
+  .footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #383b28;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .nameCafeLogo {
+    text-align: center;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    cursor: default;
+    overflow: hidden;
+  }
+
+  .line {
+    width: 80%;
+    height: 2px;
+    background-color: #e9d4b9;
+  }
+
+  .copy {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    padding-bottom: 30px;
+    cursor: default;
+  }
+}
+
+@media (min-width: 1025px) {
+  /*nav*/
+  nav {
+    height: auto;
+    width: auto;
+    display: block;
+  }
+
+  .navbar-items-container {
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  .logoNav {
+    position: relative;
+    padding-left: 17px;
+  }
+
+  .logoNav img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logoNav h1 {
+    display: block;
+  }
+
+  .contactIcons {
+    display: block;
+  }
+
+  /*main*/
+  .main-container {
+    position: relative;
+  }
+
+  .introPage .text h1 {
+    font-size: 38px;
+  }
+
+  .coffegrao1 {
+    top: 20%;
+    left: 0%;
+    height: 200px;
+    width: 250px;
+  }
+
+  .CafeAdress img {
+    width: 550px;
+    height: 500px;
+  }
+
+  .CafeAdress p {
+    font-size: 18px;
+  }
+
+  .coffegrao2 {
+    top: 50%;
+    left: 80%;
+    height: 200px;
+    width: 250px;
+  }
+
+  .aboutUs {
+    flex-direction: row;
+    height: 80%;
+  }
+
+  .SecondMiddleAbout .logo3dImg {
+    top: 0;
+    right: 25%;
+    width: 140px;
+    height: 140px;
+  }
+
+  .products-container {
+    flex-direction: row;
+  }
+
+  .posters {
+    flex-direction: row;
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+
+  .Side1 {
+    max-width: 33.3%;
+    min-width: 33.3%;
+    margin-top: 0;
+  }
+
+  .Side2 {
+    max-width: 33.3%;
+    min-width: 33.3%;
+    margin-top: 0;
+  }
+
+  .Side3 {
+    max-width: 33.5%;
+    min-width: 33.3%;
+    margin-top: 0;
+  }
+
+  .SchedulingBox {
+    width: 30%;
+    margin-right: 60px;
+  }
+
+  .tableScheduling {
+    align-items: end;
+  }
+
+  .nameCafeLogo {
+    font-size: clamp(3rem, 22vw, 9rem);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1920px) {
+  /*nav*/
+  .nav-container {
+    height: 150px;
+  }
+
+  .navbar-items-container {
+    padding: 2rem;
+  }
+
+  .logoNav img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logoNav h1 {
+    font-size: 30px;
+  }
+
+  .NavSections ul li {
+    font-size: 22px;
+  }
+
+  .contactIcons ul li {
+    padding: 20px 22px;
+  }
+
+  .contactIcons .fa-brands {
+    font-size: 24px;
+  }
+
+  /*main*/
+  .introPage .text h1 {
+    font-size: 48px;
+  }
+
+  .introPage a {
+    font-size: 20px;
+  }
+
+  #videoControlBtn {
+    width: 95px;
+    height: 95px;
+    font-size: 20px;
+  }
+
+  .coffegrao1 {
+    height: 300px;
+    width: 300px;
+  }
+
+  .CafeAdress img {
+    width: 750px;
+    height: 700px;
+  }
+
+  .VisitUs-container h1 {
+    font-size: 60px;
+  }
+
+  .CafeAdress p {
+    font-size: 24px;
+  }
+
+  .coffegrao2 {
+    height: 300px;
+    width: 300px;
+  }
+
+  .FirstMiddleAbout h1 {
+    font-size: 60px;
+  }
+
+  .textAboutP {
+    font-size: 24px;
+  }
+
+  .discoverproductsBtn {
+    font-size: 24px;
+  }
+
+  .SecondMiddleAbout img {
+    width: 550px;
+  }
+
+  .product {
+    width: 350px;
+  }
+
+  .FirstCategory h2 {
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+  .SecondCategory h2 {
+    font-size: 50px;
+  }
+
+  .ThirdCategory h2 {
+    font-size: 50px;
+  }
+
+  .img-container {
+    width: 100%;
+    height: 330px;
+    overflow: hidden;
+  }
+
+  .Scheduling-box h2 {
+    font-size: 38px;
+  }
+
+  .Scheduling-box input {
+    font-size: 22px;
+  }
+
+  .btn {
+    width: 300px;
+    font-size: 22px;
+  }
+
+  .nameCafeLogo {
+    font-size: clamp(3rem, 22vw, 13rem);
+  }
+
+  .copy {
+    font-size: 22px;
+  }
+}

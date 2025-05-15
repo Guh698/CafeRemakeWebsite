@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/coffeelogo.ico" type="image/x-icon" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/eed7473860.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Coddee & Coffing</title>
+  </head>
+  <body data-scroll-container>
+    <div class="container">
+      <div class="nav-container">
+        <nav>
+          <div class="navbar-items-container">
+            <div class="logoNav">
+              <a href="https://cafewebsiteguh.netlify.app/"
+                ><img src="img/coffeelogo.png" alt="Logo café"
+              /></a>
+              <a href="https://cafewebsiteguh.netlify.app/"
+                ><h1>Coddee & Coffing</h1></a
+              >
+            </div>
+            <div class="NavSections">
+              <ul>
+                <li>
+                  <a href="#about-section"
+                    >Welcome
+                    <div class="linha"></div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#catalog-section"
+                    >Catalog
+                    <div class="linha"></div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="contactIcons">
+              <ul class="MediaIcons">
+                <a href="https://www.instagram.com/guhs_32/" target="_blank"
+                  ><li><i class="fa-brands fa-instagram"></i></li
+                ></a>
+                <a
+                  href="https://wa.me/5519993244478?text=Olá,%20bom%20dia!"
+                  target="_blank"
+                  ><li><i class="fa-brands fa-whatsapp"></i></li
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/luiz-gustavo-silva-santos-oliveira/"
+                  target="_blank"
+                  ><li><i class="fa-brands fa-linkedin-in"></i></li
+                ></a>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="main-container">
+        <main>
+          <section class="Welcome-container">
+            <div class="introPage">
+              <button id="videoControlBtn">Pause</button>
+              <video id="introVideo" muted loop playsinline preload="auto">
+                <source
+                  src="https://res.cloudinary.com/dabshzrnj/video/upload/f_auto,q_auto/v1746677961/cafeVideo_gw2fcu.mp4"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="text">
+                <h1 id="titleMain">Welcome to the cafe</h1>
+                <p id="discoverBtn" class="discoverBtn">
+                  <a href="#FindUs-section">discover</a>
+                </p>
+              </div>
+            </div>
+          </section>
+          <a href="#" id="FindUs-section"></a>
+          <section class="VisitUs-container containers">
+            <h1 class="fade-up">Find Us</h1>
+            <div class="visitUs">
+              <div class="coffegrao1" id="CoffeeBean1"></div>
+              <div class="CafeAdress">
+                <img
+                  src="https://res.cloudinary.com/dabshzrnj/image/upload/v1746725939/storeLocal_optimized_tlk0mz.webp"
+                  alt="Café Local"
+                  loading="lazy"
+                />
+                <p>45-39 Av. de la Bourdonnais Paris, France</p>
+              </div>
+              <div class="coffegrao2" id="CoffeeBean2"></div>
+            </div>
+          </section>
+          <a href="#" id="about-section"></a>
+          <div class="aboutContainer containers">
+            <section class="aboutUs">
+              <div class="FirstMiddleAbout">
+                <h1 class="fade-up">Coddee & Coffing</h1>
+                <div class="textAboutP">
+                  <p class="brand">-Where coding meets coffee-</p>
+                  <p>
+                    Coddee & Coffing is where the aroma of coffee meets the
+                    logic of code. A space designed for creative minds who live
+                    between pixels, ideas, and rich flavors. With a refined
+                    aesthetic and calm atmosphere, it's the perfect place to
+                    work, unwind, or simply enjoy.
+                  </p>
+                </div>
+                <div class="btn-container">
+                  <a class="menuDownload" href="Menu.pdf" download
+                    ><div class="discoverproductsBtn" id="discoverproductsBtn">
+                      Discover the Menu
+                    </div></a
+                  >
+                </div>
+              </div>
+              <div class="SecondMiddleAbout">
+                <img
+                  src="img/coffeelogo.png"
+                  alt="Logo café 3d effect"
+                  class="logo3dImg"
+                  id="logo3dImg"
+                />
+                <img
+                  src="https://res.cloudinary.com/dabshzrnj/image/upload/v1746677953/caf%C3%A9poster_td100e.jpg"
+                  alt="cafe poster section about"
+                  loading="lazy"
+                  class="AboutPosterImg"
+                />
+              </div>
+            </section>
+          </div>
+          <a href="#" id="catalog-section"></a>
+          <div class="productsCategoryContainer containers">
+            <div class="MenuTitle-container">
+              <div class="MenuTitle">
+                <div class="linha1" id="linha1"></div>
+                <div class="TitleTextMenu" id="TitleTextMenu">
+                  Some Products
+                </div>
+                <div class="linha2" id="linha2"></div>
+              </div>
+            </div>
+            <section class="FirstCategory">
+              <h2 class="fade-up">Desserts</h2>
+              <div class="products-container">
+                <article class="product1 product" id="product1">
+                  <div class="img-container">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_500,h_400,c_fill/galeria1_glhc1f.jpg"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product1-sub product-sub">
+                    <p class="name"></p>
+                  </div>
+                </article>
+                <article class="product2 product" id="product2">
+                  <div class="img-container">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_500,h_400,c_fill/galeria2_i6qnq8.jpg"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product2-sub product-sub">
+                    <p class="name"></p>
+                  </div>
+                </article>
+                <article class="product3 product" id="product3">
+                  <div class="img-container">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_500,h_400,c_fill/galeria6_uk4qdw.jpg"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product3-sub product-sub">
+                    <p class="name"></p>
+                  </div>
+                </article>
+                <article class="product4 product" id="product4">
+                  <div class="img-container">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_500,h_400,c_fill/galeria4_gwwyrc.jpg"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product4-sub product-sub">
+                    <p class="name"></p>
+                  </div>
+                </article>
+              </div>
+            </section>
+            <section class="SecondCategory">
+              <h2 class="fade-up">Coffees</h2>
+              <div class="products-container">
+                <article class="product5 product" id="product5">
+                  <div class="img-container">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_500,h_400,c_fill/caf%C3%A91_jklroj.jpg"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product5-sub product-sub">
+                    <p class="name"></p>
+                  </div>
+                </article>
+                <article class="product6 product" id="product6">
+                  <div class="img-container">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_500,h_400,c_fill/caf%C3%A92_mftwys.jpg"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product6-sub product-sub">
+                    <p class="name"></p>
+                  </div>
+                </article>
+                <article class="product7 product" id="product7">
+                  <div class="img-container">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_500,h_400,c_fill/caf%C3%A9poster_td100e.jpg"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product7-sub product-sub">
+                    <p class="name"></p>
+                  </div>
+                </article>
+                <article class="product8 product" id="product8">
+                  <div class="img-container">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_500,h_400,c_fill/cafe5_ecbeal.jpg"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product8-sub product-sub">
+                    <p class="name"></p>
+                  </div>
+                </article>
+              </div>
+            </section>
+            <section class="ThirdCategory">
+              <h2 class="fade-up">Brazilian savories</h2>
+              <div class="products-container">
+                <article class="product9 product" id="product9">
+                  <div class="img-container">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_500,h_400,c_fill/galeria13_crkxwq.jpg"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product9-sub product-sub">
+                    <p class="name"></p>
+                  </div>
+                </article>
+                <article class="product10 product" id="product10">
+                  <div class="img-container">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_500,h_400,c_fill/galeria14_optimized_iumbbw.webp"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product10-sub product-sub">
+                    <p class="name"></p>
+                  </div>
+                </article>
+                <article class="product11 product" id="product11">
+                  <div class="img-container">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_500,h_400,c_fill/galeria15_is6wdh.jpg"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product11-sub product-sub">
+                    <p class="name"></p>
+                  </div>
+                </article>
+                <article class="product12 product" id="product12">
+                  <div class="img-container">
+                    <img
+                      src="https://res.cloudinary.com/dabshzrnj/image/upload/w_500,h_400,c_fill/galeria16_plrsl3.jpg"
+                      loading="lazy"
+                      width="100%"
+                      height="100%"
+                      class="product-img"
+                    />
+                  </div>
+                  <div class="product12-sub product-sub">
+                    <p class="name"></p>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </div>
+          <div class="posters-container containers">
+            <section class="posters">
+              <div class="Side1 side" id="poster1">
+                <img
+                  src="https://res.cloudinary.com/dabshzrnj/image/upload/v1746726135/glassesposter-681cece232f5c_ddtazy.webp"
+                  alt="coffee glasses poster"
+                />
+              </div>
+              <div class="Side2 side" id="poster2">
+                <img
+                  src="https://res.cloudinary.com/dabshzrnj/image/upload/v1746726143/cafeposterproduct-681cecd7270aa_fisudw.webp"
+                  alt="coffee products poster"
+                />
+              </div>
+              <div class="Side3 side" id="poster3">
+                <img
+                  src="https://res.cloudinary.com/dabshzrnj/image/upload/v1746725939/storeLocal_optimized_tlk0mz.webp"
+                  alt="Coffee shop local poster"
+                />
+              </div>
+            </section>
+          </div>
+          <div class="tableScheduling-container containers">
+            <section class="tableScheduling">
+              <div class="SchedulingBox" id="tableScheduling">
+                <form
+                  id="SchedulingForm"
+                  class="Scheduling-box"
+                  onsubmit="sendScheduling(event)"
+                  action="https://formsubmit.co/go459103@gmail.com"
+                  method="POST"
+                >
+                  <h2>Table Scheduling</h2>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Name"
+                    required
+                  />
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    placeholder="phone: (00) 90000-0000"
+                  />
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Email"
+                    name="email"
+                  />
+                  <input
+                    type="datetime-local"
+                    id="dataTime"
+                    name="data de agendamento"
+                    required
+                  />
+                  <input
+                    type="hidden"
+                    name="_autoresponse"
+                    value="Obrigado pelo agendamento! Entraremos em contato em breve."
+                  />
+                  <button type="submit" class="btn">Make a Reservation</button>
+                </form>
+              </div>
+            </section>
+          </div>
+          <script src="script.js"></script>
+        </main>
+        <footer>
+          <div class="footer-container">
+            <div class="nameCafeLogo">Coddee & Coffing</div>
+            <div class="line"></div>
+            <div class="copy">© 2025 Luiz Gustavo</div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
