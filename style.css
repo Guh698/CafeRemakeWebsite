@@ -184,10 +184,10 @@ body {
   .interactiveMenu {
     position: fixed;
     top: 0;
-    margin-top: 65px;
+    margin-top: 35px;
     right: 0;
     padding: 15px 20px;
-    margin-right: 35px;
+    margin-right: 25px;
     border-radius: 50%;
     z-index: 4;
     background-color: #383b28;
@@ -213,6 +213,127 @@ body {
     overflow: hidden;
   }
 
+  /*side bar*/
+  .sidebarContainer {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -100px;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s ease;
+  }
+
+  .sidebarContainer.Show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sidebar {
+    position: relative;
+    background-color: #e9d4b9;
+    height: 95%;
+    width: 95%;
+    padding: 15px;
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .sideHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  hr {
+    color: #383b28;
+    background-color: #383b28;
+    height: 3px;
+  }
+
+  .sideHeader_items {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    height: 100%;
+    padding: 5px;
+    color: #383b28;
+  }
+
+  .fa-xmark {
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .sideHeader_items h2 {
+    cursor: default;
+  }
+
+  .sideGuide {
+    height: auto;
+    padding: 2rem;
+  }
+
+  .sideGuide ul {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+  }
+
+  .sideGuide ul li {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 16px;
+  }
+
+  .nameSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .fa-arrow-right-long {
+    color: #383b28;
+  }
+
+  .sideFooter {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 10px;
+  }
+
+  .sideFooter ul {
+    display: flex;
+    gap: 30px;
+  }
+
+  .sideFooter ul a {
+    padding: 11px 17px;
+    border: 1px solid #383b28;
+    border-radius: 50%;
+    transition: 0.5s ease;
+    color: #383b28;
+    font-size: 20px;
+  }
+
+  .sideFooter ul a:hover {
+    color: #e9d4b9;
+    background-color: #383b28;
+  }
+
+  /*welcome Video*/
   .introPage {
     position: relative;
     width: 100%;

@@ -224,4 +224,30 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     },
   });
+
+  const CloseMenuIcon = document.getElementById("close-menu-icon");
+  const sideBar = document.getElementById("sidebarContainer");
+  const interactiveMenu = document.getElementById("interactiveMenu");
+
+  function ShowSide() {
+    sideBar.classList.add("Show");
+    interactiveMenu.classList.remove("Show");
+  }
+
+  function closeSide() {
+    sideBar.classList.remove("Show");
+    interactiveMenu.classList.add("Show");
+  }
+
+  if (interactiveMenu) {
+    interactiveMenu.addEventListener("click", function () {
+      ShowSide();
+    });
+  }
+
+  if (CloseMenuIcon) {
+    CloseMenuIcon.addEventListener("click", function () {
+      closeSide();
+    });
+  }
 });
