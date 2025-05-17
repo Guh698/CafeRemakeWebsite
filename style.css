@@ -112,18 +112,17 @@ body {
   }
 
   .NavSections {
+    position: absolute;
+    width: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
+    z-index: 1;
   }
 
   .NavSections ul {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50px);
-    width: 100%;
     display: flex;
     gap: 10px;
-    z-index: 1;
   }
 
   .NavSections ul li {
@@ -580,7 +579,7 @@ body {
     right: 0;
     width: 120px;
     height: 120px;
-    z-index: 4;
+    z-index: 1;
   }
 
   .productsCategoryContainer {
