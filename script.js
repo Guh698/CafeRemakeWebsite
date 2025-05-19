@@ -1,6 +1,13 @@
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
 
 document.addEventListener("DOMContentLoaded", function () {
+  const smoother = ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: 1,
+    smoothTouch: 0.1,
+  });
+
   gsap.utils.toArray(".fade-up").forEach((text) => {
     gsap.fromTo(
       text,
@@ -49,20 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  /*gsap.set("#interactiveMenu", {
-    scale: 0,
-  });
-
-  gsap.to("#interactiveMenu", {
-    scale: 1,
-    scrollTrigger: {
-      trigger: ".mainContent",
-      start: "top top",
-      end: "top bottom",
-      scrub: true, // Acompanha a rolagem
-    },
-  }); */
-
   gsap.to("#interactiveMenu", {
     scrollTrigger: {
       trigger: ".mainContent",
@@ -73,16 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       onLeaveBack: () => {
         document.querySelector(".interactiveMenu").classList.remove("Show");
-      },
-    },
-  });
-
-  gsap.to("#interactiveMenu", {
-    scrollTrigger: {
-      trigger: ".mainContent",
-      start: "top top",
-      onEnter: () => {
-        document.querySelector("#linha1").classList.add("animate");
       },
     },
   });
@@ -239,15 +222,42 @@ document.addEventListener("DOMContentLoaded", function () {
     interactiveMenu.classList.add("Show");
   }
 
+  function pauseScroll() {
+    smoother.paused(true);
+  }
+
+  function resumeScroll() {
+    smoother.paused(false);
+  }
+
   if (interactiveMenu) {
     interactiveMenu.addEventListener("click", function () {
+      pauseScroll();
       ShowSide();
     });
   }
 
   if (CloseMenuIcon) {
     CloseMenuIcon.addEventListener("click", function () {
+      resumeScroll();
       closeSide();
     });
   }
+
+  function scrollToId(id) {
+    const element = document.querySelector(`#${id}`);
+    if (element) {
+      smoother.scrollTo(element, true, "start");
+    }
+  }
+
+  document.querySelectorAll(".scroll-link").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault(); // Evita o comportamento padrão do link
+      const id = link.getAttribute("data-scroll"); // Pega o ID do atributo data-scroll
+      closeSide();
+      resumeScroll();
+      scrollToId(id); // Chama a função com o ID
+    });
+  });
 });

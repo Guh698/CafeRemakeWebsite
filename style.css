@@ -218,7 +218,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -100px;
     height: 100%;
     width: 100%;
     z-index: 4;
@@ -913,6 +912,25 @@ body {
 
   .contactIcons {
     display: block;
+  }
+
+  /*side bar*/
+  .sidebarContainer {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s ease;
+  }
+
+  .sidebarContainer.Show {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   /*main*/
