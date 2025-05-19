@@ -77,8 +77,15 @@
           <main class="mainContent">
             <section class="Welcome-container" id="section1">
               <div class="introPage">
-                <button id="videoControlBtn">Pause</button>
-                <video id="introVideo" muted loop playsinline preload="auto">
+                <button id="videoControlBtn">Play</button>
+                <video
+                  id="introVideo"
+                  muted
+                  loop
+                  playsinline
+                  preload="auto"
+                  loading="lazy"
+                >
                   <source
                     src="https://res.cloudinary.com/dabshzrnj/video/upload/f_auto,q_auto/v1746677961/cafeVideo_gw2fcu.mp4"
                     type="video/mp4"
@@ -103,7 +110,7 @@
                 <div class="coffegrao1" id="CoffeeBean1"></div>
                 <div class="CafeAdress">
                   <img
-                    src="https://res.cloudinary.com/dabshzrnj/image/upload/v1746725939/storeLocal_optimized_tlk0mz.webp"
+                    src="https://res.cloudinary.com/dabshzrnj/image/upload/w_400,h_500,c_fill/storeLocal_optimized_tlk0mz.webp"
                     alt="Café Local"
                     loading="lazy"
                   />
@@ -127,7 +134,11 @@
                     </p>
                   </div>
                   <div class="btn-container">
-                    <a class="menuDownload" href="Menu.pdf" download
+                    <a
+                      class="menuDownload"
+                      id="menuDownload"
+                      href="Menu.pdf"
+                      download
                       ><div
                         class="discoverproductsBtn"
                         id="discoverproductsBtn"
@@ -145,7 +156,7 @@
                     id="logo3dImg"
                   />
                   <img
-                    src="https://res.cloudinary.com/dabshzrnj/image/upload/v1746677953/caf%C3%A9poster_td100e.jpg"
+                    src="https://res.cloudinary.com/dabshzrnj/image/upload/w_500,h_750,c_fill/caf%C3%A9poster_td100e.jpg"
                     alt="cafe poster section about"
                     loading="lazy"
                     class="AboutPosterImg"

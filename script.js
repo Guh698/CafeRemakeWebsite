@@ -11,9 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.utils.toArray(".fade-up").forEach((text) => {
     gsap.fromTo(
       text,
-      { opacity: 0, y: 50 }, // Começa invisível e deslocado para baixo
+      { y: 50 }, // Começa invisível e deslocado para baixo
       {
-        opacity: 1,
         y: 0,
         duration: 1,
         ease: "power2.out",
@@ -148,7 +147,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const video = document.getElementById("introVideo");
   const btn = document.getElementById("videoControlBtn");
-  video.play();
 
   btn.addEventListener("click", () => {
     if (video.paused) {
@@ -159,6 +157,21 @@ document.addEventListener("DOMContentLoaded", function () {
       btn.textContent = "Play";
     }
   });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    },
+    { threshold: 0.5 }
+  ); // só roda quando pelo menos 50% visível
+
+  observer.observe(video);
 
   // First Category
   ScrollTrigger.create({
@@ -260,4 +273,18 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollToId(id); // Chama a função com o ID
     });
   });
+
+  function isMobile() {
+    return /Mobi|Android|iPhone/i.test(navigator.userAgent);
+  }
+
+  // Seleciona o link de download
+  const downloadLink = document.getElementById("menuDownload");
+
+  // Verifica o dispositivo e define o link correspondente
+  if (isMobile()) {
+    downloadLink.href = "Menu-mobile.pdf"; // Arquivo específico para mobile
+  } else {
+    downloadLink.href = "Menu-Desktop.pdf"; // Arquivo específico para desktop
+  }
 });
