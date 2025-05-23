@@ -173,7 +173,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   observer.observe(video);
 
-  // First Category
   ScrollTrigger.create({
     trigger: ".FirstCategory",
     start: "top 20%",

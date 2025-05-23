@@ -996,9 +996,9 @@ body {
   .FirstCategory,
   .SecondCategory,
   .ThirdCategory {
-    position: relative;
-    width: 400vw;
-    min-height: 400vh;
+    left: 0;
+    margin-right: 45%;
+    min-height: 350vh;
   }
 
   .img-container {
