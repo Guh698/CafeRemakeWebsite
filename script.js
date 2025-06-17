@@ -170,7 +170,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
     },
-    { threshold: 0.5 }
+
+    { rootMargin: "150px 0px", threshold: 0.1 }
   );
 
   observer.observe(video);
