@@ -19,7 +19,7 @@
   <body data-scroll-container>
     <div class="container" id="smooth-wrapper">
       <div id="smooth-content">
-        <div class="nav-container">
+        <div class="nav-container" id="section1">
           <nav>
             <div class="navbar-items-container">
               <div class="logoNav">
@@ -74,7 +74,7 @@
         </div>
         <div class="main-container">
           <main class="mainContent">
-            <section class="Welcome-container" id="section1">
+            <section class="Welcome-container">
               <div class="introPage">
                 <button id="videoControlBtn">Play</button>
                 <video
@@ -84,11 +84,9 @@
                   playsinline
                   preload="auto"
                   loading="lazy"
+                  autoplay
                 >
-                  <source
-                    src="https://res.cloudinary.com/dabshzrnj/video/upload/f_auto,q_auto/v1746677961/cafeVideo_gw2fcu.mp4"
-                    type="video/mp4"
-                  />
+                  <source src="" type="video/mp4" id="videoContent" />
                 </video>
                 <div class="text">
                   <h1 id="titleMain">Welcome to the cafe</h1>

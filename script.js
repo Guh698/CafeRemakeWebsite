@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
     smoothTouch: 0.1,
   });
 
+  ScrollSmoother.get().scrollTo(0, true);
+
   gsap.utils.toArray(".fade-up").forEach((text) => {
     gsap.fromTo(
       text,
@@ -169,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     },
     { threshold: 0.5 }
-  ); // só roda quando pelo menos 50% visível
+  );
 
   observer.observe(video);
 
@@ -259,7 +261,13 @@ document.addEventListener("DOMContentLoaded", function () {
   function scrollToId(id) {
     const element = document.querySelector(`#${id}`);
     if (element) {
-      smoother.scrollTo(element, true, "start");
+      setTimeout(() => {
+        gsap.to(window, {
+          scrollTo: element,
+          duration: 0.5,
+          ease: "power1.inOut",
+        });
+      }, 200);
     }
   }
 
@@ -269,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const id = link.getAttribute("data-scroll"); // Pega o ID do atributo data-scroll
       closeSide();
       resumeScroll();
-      scrollToId(id); // Chama a função com o ID
+      scrollToId(id);
     });
   });
 
@@ -277,13 +285,27 @@ document.addEventListener("DOMContentLoaded", function () {
     return /Mobi|Android|iPhone/i.test(navigator.userAgent);
   }
 
-  // Seleciona o link de download
   const downloadLink = document.getElementById("menuDownload");
 
   // Verifica o dispositivo e define o link correspondente
   if (isMobile()) {
-    downloadLink.href = "Menu-mobile.pdf"; // Arquivo específico para mobile
+    downloadLink.href = "Menu-mobile.pdf";
   } else {
-    downloadLink.href = "Menu-Desktop.pdf"; // Arquivo específico para desktop
+    downloadLink.href = "Menu-Desktop.pdf";
   }
+
+  const videoContent = document.getElementById("videoContent");
+
+  if (isMobile()) {
+    videoContent.src =
+      "https://res.cloudinary.com/dabshzrnj/video/upload/v1750175578/CafemobilevideoOtimized_l1zcqq.mp4";
+  } else {
+    videoContent.src =
+      "https://res.cloudinary.com/dabshzrnj/video/upload/f_auto,q_auto/v1746677961/cafeVideo_gw2fcu.mp4";
+  }
+
+  introVideo.load();
+  introVideo.play().catch((error) => {
+    console.log("A reprodução automática foi impedida pelo navegador:", error);
+  });
 });
