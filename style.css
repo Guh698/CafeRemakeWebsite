@@ -411,6 +411,11 @@ body {
     font-weight: bold;
   }
 
+  .titleCase {
+    height: auto;
+    overflow: hidden;
+  }
+
   .fade-up {
     transform: translateY(50px);
     transition: 0.6s ease;
@@ -426,7 +431,7 @@ body {
     background-color: #e9d4b9;
   }
 
-  .VisitUs-container h1 {
+  .VisitUs-container h2 {
     font-size: 45px;
     font-weight: bold;
     color: #383b28;
@@ -517,7 +522,7 @@ body {
     color: #383b28;
   }
 
-  .FirstMiddleAbout h1 {
+  .FirstMiddleAbout h2 {
     font-size: 35px;
     font-weight: bold;
     cursor: default;

@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
   ScrollTrigger.create({
     trigger: ".FirstCategory",
     start: "top 20%",
-    end: "+=1500", // quanto maior, mais tempo "preso"
+    end: "+=1500",
     scrub: 1,
     pin: true,
     onUpdate: (self) => {
