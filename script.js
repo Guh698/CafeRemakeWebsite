@@ -1,4 +1,4 @@
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin, Draggable);
 
 document.addEventListener("DOMContentLoaded", function () {
   const smoother = ScrollSmoother.create({
@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     content: "#smooth-content",
     smooth: 1,
     smoothTouch: 0.1,
+    effects: true,
   });
 
   ScrollSmoother.get().scrollTo(0, true);
@@ -176,52 +177,73 @@ document.addEventListener("DOMContentLoaded", function () {
 
   observer.observe(video);
 
-  ScrollTrigger.create({
-    trigger: ".FirstCategory",
-    start: "top 20%",
-    end: "+=1500",
-    scrub: 1,
-    pin: true,
-    onUpdate: (self) => {
-      gsap.to(".FirstCategory", {
-        x: `${-1800 * self.progress}px`,
-        duration: 1,
-        ease: "power3.out",
-      });
-    },
-  });
+  if (!isMobile()) {
+    ScrollTrigger.create({
+      trigger: ".FirstCategory",
+      start: "top 20%",
+      end: "+=1500",
+      scrub: 1,
+      pin: true,
+      onUpdate: (self) => {
+        gsap.to(".FirstCategory", {
+          x: `${-1800 * self.progress}px`,
+          duration: 1,
+          ease: "power3.out",
+        });
+      },
+    });
 
-  // Second Category
-  ScrollTrigger.create({
-    trigger: ".SecondCategory",
-    start: "top 20%",
-    end: "+=1500",
-    scrub: 1,
-    pin: true,
-    onUpdate: (self) => {
-      gsap.to(".SecondCategory", {
-        x: `${-1700 * self.progress}px`,
-        duration: 1,
-        ease: "power3.out",
-      });
-    },
-  });
+    // Second Category
+    ScrollTrigger.create({
+      trigger: ".SecondCategory",
+      start: "top 20%",
+      end: "+=1500",
+      scrub: 1,
+      pin: true,
+      onUpdate: (self) => {
+        gsap.to(".SecondCategory", {
+          x: `${-1700 * self.progress}px`,
+          duration: 1,
+          ease: "power3.out",
+        });
+      },
+    });
 
-  // Third Category
-  ScrollTrigger.create({
-    trigger: ".ThirdCategory",
-    start: "top 20%",
-    end: "+=1500",
-    scrub: 1,
-    pin: true,
-    onUpdate: (self) => {
-      gsap.to(".ThirdCategory", {
-        x: `${-1700 * self.progress}px`,
-        duration: 1,
-        ease: "power3.out",
+    // Third Category
+    ScrollTrigger.create({
+      trigger: ".ThirdCategory",
+      start: "top 20%",
+      end: "+=1500",
+      scrub: 1,
+      pin: true,
+      onUpdate: (self) => {
+        gsap.to(".ThirdCategory", {
+          x: `${-1700 * self.progress}px`,
+          duration: 1,
+          ease: "power3.out",
+        });
+      },
+    });
+  } else {
+    const categories = gsap.utils.toArray(
+      ".FirstCategory, .SecondCategory, .ThirdCategory"
+    );
+
+    categories.forEach((category) => {
+      const productsContainer = category.querySelector(".products-container");
+      if (!productsContainer) return;
+
+      Draggable.create(productsContainer, {
+        type: "x",
+        inertia: true,
+        edgeResistance: 0.8,
+        bounds: {
+          maxX: -900,
+          minX: category.offsetWidth - productsContainer.scrollWidth,
+        },
       });
-    },
-  });
+    });
+  }
 
   const CloseMenuIcon = document.getElementById("close-menu-icon");
   const sideBar = document.getElementById("sidebarContainer");
