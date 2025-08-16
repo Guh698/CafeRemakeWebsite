@@ -233,7 +233,8 @@ body {
   }
 
   .sidebar {
-    position: relative;
+    position: fixed;
+    top: 1em;
     background-color: #e9d4b9;
     height: 95%;
     width: 95%;
@@ -381,31 +382,6 @@ body {
     color: #fff;
   }
 
-  #videoControlBtn {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    margin-bottom: 175px;
-    margin-right: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(241, 241, 241, 0.182);
-    color: white;
-    border: none;
-    width: 85px;
-    height: 85px;
-    cursor: pointer;
-    font-size: 14px;
-    border-radius: 50%;
-    transition: background 0.3s, color 0.3s;
-    z-index: 3;
-  }
-  #videoControlBtn:hover {
-    background: rgba(241, 241, 241, 0.943);
-    color: #000;
-  }
-
   .discoverBtn a {
     cursor: pointer;
     font-weight: bold;
@@ -423,6 +399,7 @@ body {
 
   .VisitUs-container {
     position: relative;
+    padding-top: 2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -654,12 +631,11 @@ body {
   .ThirdCategory {
     position: relative;
     width: 100%;
-    height: 50vh;
+    height: 40vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 30px;
     color: #e9d4b9;
     overflow: hidden;
   }
@@ -668,8 +644,13 @@ body {
     margin-top: 200px;
   }
 
+  .SecondCategory {
+    transform: translateX(-50%);
+  }
+
   .products-container {
     display: flex;
+    align-items: center;
     gap: 2rem;
     height: 100%;
     width: max-content;
@@ -683,6 +664,8 @@ body {
 
   .product {
     position: relative;
+    display: flex;
+    align-items: center;
     width: 250px;
     height: 100%;
     overflow: hidden;
@@ -697,10 +680,6 @@ body {
   .product img {
     transition: transform 0.5s ease;
     object-fit: cover;
-  }
-
-  .product:hover img {
-    transform: scale(1.1);
   }
 
   .SecondCategory h2 {
@@ -763,18 +742,6 @@ body {
     width: 100%;
     object-fit: cover;
     transition: 0.5s ease;
-  }
-
-  .Side1 img:hover {
-    transform: scale(1.1);
-  }
-
-  .Side2 img:hover {
-    transform: scale(1.1);
-  }
-
-  .Side3 img:hover {
-    transform: scale(1.1);
   }
 
   .tableScheduling-container {
@@ -999,17 +966,19 @@ body {
   .FirstCategory,
   .SecondCategory,
   .ThirdCategory {
-    left: 0;
     margin-right: 45%;
-    min-height: 350vh;
   }
 
   .img-container {
-    height: 280px;
+    height: 230px;
   }
 
   .product {
-    width: 450px;
+    width: 400px;
+  }
+
+  .product:hover img {
+    transform: scale(1.1);
   }
 
   .posters {
@@ -1032,6 +1001,18 @@ body {
     max-width: 33.5%;
     min-width: 33.3%;
     margin-top: 0px;
+  }
+
+  .Side1 img:hover {
+    transform: scale(1.1);
+  }
+
+  .Side2 img:hover {
+    transform: scale(1.1);
+  }
+
+  .Side3 img:hover {
+    transform: scale(1.1);
   }
 
   .SchedulingBox {

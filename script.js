@@ -1,11 +1,16 @@
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin, Draggable);
+gsap.registerPlugin(
+  ScrollTrigger,
+  ScrollSmoother,
+  ScrollToPlugin,
+  Draggable,
+  InertiaPlugin
+);
 
 document.addEventListener("DOMContentLoaded", function () {
   const smoother = ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
     smooth: 1,
-    smoothTouch: 0.1,
     effects: true,
   });
 
@@ -14,16 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.utils.toArray(".fade-up").forEach((text) => {
     gsap.fromTo(
       text,
-      { y: 50 }, // Começa invisível e deslocado para baixo
+      { y: 50 },
       {
         y: 0,
-        duration: 1,
-        ease: "power2.out",
+        ease: "none",
         scrollTrigger: {
           trigger: text,
-          start: "top 80%", // Inicia quando o texto está 80% visível
-          end: "top 40%", // Termina quando está 40% visível
-          scrub: true, // Efeito suave ao scrollar
+          start: "top bottom",
         },
       }
     );
@@ -31,30 +33,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Animação Parallax
   gsap.to("#titleMain", {
-    y: -150, // Sobe enquanto rola
+    y: -150,
     scrollTrigger: {
       trigger: ".Welcome-container",
       start: "top top",
-      scrub: true, // Acompanha a rolagem
+      scrub: true,
     },
   });
 
   gsap.to("#discoverBtn", {
-    y: -190, // Sobe enquanto rola
+    y: -190,
     scrollTrigger: {
       trigger: ".Welcome-container",
       start: "top top",
-      scrub: true, // Acompanha a rolagem
-    },
-  });
-
-  gsap.to("#videoControlBtn", {
-    y: -150, // Sobe enquanto rola
-    scale: 0.5,
-    scrollTrigger: {
-      trigger: ".Welcome-container",
-      start: "top top",
-      scrub: true, // Acompanha a rolagem
+      scrub: true,
     },
   });
 
@@ -73,25 +65,25 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   gsap.set("#CoffeeBean1", {
-    rotation: 55, // ou qualquer valor que quiser
+    rotation: 55,
   });
 
   gsap.to("#CoffeeBean1", {
-    y: -350, // Sobe enquanto rola
+    y: -350,
     rotation: 100,
     scrollTrigger: {
       trigger: ".VisitUs-container",
       start: "top 40%",
-      scrub: true, // Acompanha a rolagem
+      scrub: true,
     },
   });
 
   gsap.set("#CoffeeBean2", {
-    rotation: 45, // ou qualquer valor que quiser
+    rotation: 45,
   });
 
   gsap.to("#CoffeeBean2", {
-    y: 200, // Desce enquanto rola
+    y: 200,
     rotation: 100,
     scrollTrigger: {
       trigger: ".VisitUs-container",
@@ -101,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   gsap.to("#logo3dImg", {
-    y: -75, // Desce enquanto rola
+    y: -75,
     scrollTrigger: {
       trigger: ".aboutUs",
       start: "top 40%",
@@ -110,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   gsap.to("#tableScheduling", {
-    y: -150, // Desce enquanto rola
+    y: -150,
     scrollTrigger: {
       trigger: ".tableScheduling-container",
       start: "top 50%",
@@ -149,17 +141,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const video = document.getElementById("introVideo");
-  const btn = document.getElementById("videoControlBtn");
-
-  btn.addEventListener("click", () => {
-    if (video.paused) {
-      video.play();
-      btn.textContent = "Pause";
-    } else {
-      video.pause();
-      btn.textContent = "Play";
-    }
-  });
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -179,69 +160,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!isMobile()) {
     ScrollTrigger.create({
-      trigger: ".FirstCategory",
-      start: "top 20%",
+      trigger: ".img-section-container",
+      start: "top 30%",
       end: "+=1500",
       scrub: 1,
-      pin: true,
       onUpdate: (self) => {
         gsap.to(".FirstCategory", {
           x: `${-1800 * self.progress}px`,
           duration: 1,
           ease: "power3.out",
         });
-      },
-    });
-
-    // Second Category
-    ScrollTrigger.create({
-      trigger: ".SecondCategory",
-      start: "top 20%",
-      end: "+=1500",
-      scrub: 1,
-      pin: true,
-      onUpdate: (self) => {
         gsap.to(".SecondCategory", {
-          x: `${-1700 * self.progress}px`,
+          x: `${1800 * self.progress}px`,
           duration: 1,
           ease: "power3.out",
         });
-      },
-    });
-
-    // Third Category
-    ScrollTrigger.create({
-      trigger: ".ThirdCategory",
-      start: "top 20%",
-      end: "+=1500",
-      scrub: 1,
-      pin: true,
-      onUpdate: (self) => {
         gsap.to(".ThirdCategory", {
-          x: `${-1700 * self.progress}px`,
+          x: `${-1800 * self.progress}px`,
           duration: 1,
           ease: "power3.out",
         });
       },
     });
   } else {
-    const categories = gsap.utils.toArray(
-      ".FirstCategory, .SecondCategory, .ThirdCategory"
-    );
-
-    categories.forEach((category) => {
-      const productsContainer = category.querySelector(".products-container");
-      if (!productsContainer) return;
-
-      Draggable.create(productsContainer, {
-        type: "x",
-        inertia: true,
-        edgeResistance: 0.8,
-        bounds: {
-          maxX: -900,
-          minX: category.offsetWidth - productsContainer.scrollWidth,
-        },
-      });
+    ScrollTrigger.create({
+      trigger: ".img-section-container",
+      start: "top 30%",
+      end: "+=1500",
+      scrub: 1,
+      onUpdate: (self) => {
+        gsap.to(".FirstCategory", {
+          x: `${-1200 * self.progress}px`,
+          duration: 1,
+          ease: "power3.out",
+        });
+        gsap.to(".SecondCategory", {
+          x: `${1200 * self.progress}px`,
+          duration: 1,
+          ease: "power3.out",
+        });
+        gsap.to(".ThirdCategory", {
+          x: `${-1200 * self.progress}px`,
+          duration: 1,
+          ease: "power3.out",
+        });
+      },
     });
   }
 
